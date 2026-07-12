@@ -1,3 +1,7 @@
+output "role_assignments_id" {
+  description = "Map of id values across all role_assignments, keyed the same as var.role_assignments"
+  value       = { for k, v in azurerm_role_assignment.role_assignments : k => v.id }
+}
 output "role_assignments_condition" {
   description = "Map of condition values across all role_assignments, keyed the same as var.role_assignments"
   value       = { for k, v in azurerm_role_assignment.role_assignments : k => v.condition }
